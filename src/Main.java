@@ -41,27 +41,23 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
 
         // new - criamos um objeto
-        Carro carroDevas = new Carro();
-        carroDevas.cor = "Azul";
-        carroDevas.marca = "Ferrari";
-        carroDevas.modelo = "296 GTB";
-        carroDevas.ligado = true;
-        carroDevas.velocidade = 0;
+//        Carro carroIgor = new Carro();
 
-        Carro carroDoIgor = new Carro();
-        carroDoIgor.cor = "Azul";
-        carroDoIgor.marca = "Fiat";
-        carroDoIgor.modelo = "Mobi";
-        carroDoIgor.ligado = true;
-        carroDoIgor.velocidade = 0;
+        Carro carroDevas = new Carro("Azul", "Ferrari", "296 GTB");
+        System.out.println(carroDevas.getCor());
+        carroDevas.setCor("Preto");
+        System.out.println(carroDevas.getCor());
+
+        String a = carroDevas.getCor();
 
         int escolha;
 
-        while(carroDevas.ligado) { // Enquanto meu carro estiver ligado ->
+        while(carroDevas.isLigado()) { // Enquanto meu carro estiver ligado ->
             mostrarMenu();
             escolha = entrada.nextInt(); // Entrada do usuario
 
             if(escolha == 1) {
+                // carroDevas.velocidade = 100;
                 carroDevas.acelerar(10);
             } else if(escolha == 2) {
                 carroDevas.frear();
@@ -70,7 +66,8 @@ public class Main {
             } else if(escolha == 0) {
                 // TODO: Implementar metodo desligar
                 System.out.println("Voce desligou o carro!");
-                carroDevas.ligado = false;
+                // carroDevas.ligado = false;
+                carroDevas.desligar();
             } else {
                 System.out.println("Escolha invalida, tente novamente");
             }
